@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+    <h1>Главная страница</h1>
+    {% if tasks  %}  <!-- Если у нас в таскс есть что-то то оно будет выводится -->
+        {% for el in tasks %}
+            <div class="alert alert-warning mt-2">
+                <h3>{{ el.title }}</h3>
+                <p>{{ el.task }}</p>
+            </div>
+        {% endfor %}
+    {% else %}  <!-- А если там будет пусто то выводи: -->
+    <p>У нас нет записей!</p>
+    {% endif %}  <!-- в конце всегода нужно закрывать с эндиф -->
+{% endblock %}
